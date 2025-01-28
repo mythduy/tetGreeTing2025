@@ -29,7 +29,7 @@ body {
 
 .snake-image {
     position: absolute; /* Vị trí tuyệt đối */
-    top: 80%; /* Căn chỉnh theo chiều dọc */
+    top: 90%; /* Căn chỉnh theo chiều dọc */
     left: 0; /* Căn chỉnh theo chiều ngang */
     transform: translateY(-50%); /* Dịch chuyển để căn giữa theo chiều dọc */
     z-index: 1; /* Độ ưu tiên hiển thị */
