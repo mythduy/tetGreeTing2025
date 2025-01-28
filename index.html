@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiệp Chúc Tết 2025</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="snake-image">
+        <img src="a.png" alt="Snake Image">
+    </div>
+    <div class="sparkles"></div>
+    <div class="container">
+        <div class="card" id="card">
+            <div class="lantern left"></div>
+            <div class="lantern right"></div>
+            
+            <div class="header">
+                <h1 class="main-title">Chúc Mừng Năm Mới</h1>
+                <div class="year">2025</div>
+            </div>
+
+            <div class="input-section" id="input-section">
+                <div class="input-wrapper">
+                    <input type="text" id="userName" placeholder="Nhập tên của bạn..." required>
+                    <button onclick="showGreeting()" class="glow-button">
+                        <span>Xem lời chúc</span>
+                        <div class="button-glow"></div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="content" id="content" style="display: none;">
+                <div class="greeting-wrapper">
+                    <p id="greeting" class="greeting-text"></p>
+                    <div class="signature">
+                        <p>Thân ái,</p>
+                        <p id="signatureName" class="signature-name"></p>
+                    </div>
+                </div>
+                <button onclick="reset()" class="glow-button reset-button">
+                    <span>Thử lại</span>
+                    <div class="button-glow"></div>
+                </button>
+            </div>
+
+            <div class="decorations">
+                <div class="coins left"></div>
+                <div class="coins right"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const greetings = [
+            "Chúc bạn và gia đình một năm mới an khang thịnh vượng, vạn sự như ý! 🎊",
+            "Năm mới kính chúc bạn và gia đình sức khỏe dồi dào, phát tài phát lộc! 🌟",
+            "Chúc năm mới tràn đầy niềm vui, hạnh phúc, và thành công rực rỡ! ✨",
+            "Kính chúc năm mới bình an, may mắn và thịnh vượng! 🎋",
+            "Chúc mừng năm mới! Chúc bạn và người thân một năm tràn đầy hạnh phúc! 🧧",
+            "Năm mới vạn sự cát tường, gia đình hạnh phúc, sức khỏe dồi dào! 🎉",
+            "Chúc bạn một năm mới đầy niềm vui và tiếng cười! 🎈",
+            "Chúc bạn và gia đình một năm mới hạnh phúc, an khang, thịnh vượng! 🎆",
+            "Chúc bạn một năm mới tràn đầy sức khỏe và thành công! 💪",
+            "Chúc bạn một năm mới với nhiều may mắn và niềm vui! 🍀",
+            "Chúc bạn và gia đình một năm mới bình an và hạnh phúc! 🕊️",
+            "Chúc bạn một năm mới với nhiều điều tốt đẹp và thành công! 🌟",
+            "Chúc bạn một năm mới với nhiều niềm vui và hạnh phúc! 😊",
+            "Chúc bạn một năm mới với nhiều thành công và may mắn! 🏆",
+            "Chúc bạn và gia đình một năm mới an khang, thịnh vượng và hạnh phúc! 🎉",
+            "Chúc bạn một năm mới với nhiều sức khỏe và thành công! 💼",
+            "Chúc bạn một năm mới với nhiều niềm vui và tiếng cười! 😂",
+            "Chúc bạn một năm mới với nhiều điều tốt đẹp và may mắn! 🌈",
+            "Chúc bạn một năm mới với nhiều thành công và hạnh phúc! 🥳",
+            "Chúc bạn và gia đình một năm mới bình an và thịnh vượng! 🏡"
+        ];
+
+        function showGreeting() {
+            const userName = document.getElementById('userName').value.trim();
+            if (!userName) {
+                const input = document.getElementById('userName');
+                input.classList.add('shake');
+                setTimeout(() => input.classList.remove('shake'), 500);
+                return;
+            }
+
+            const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
+            document.getElementById('greeting').textContent = randomGreeting;
+            document.getElementById('signatureName').textContent = userName;
+            
+            const inputSection = document.getElementById('input-section');
+            const content = document.getElementById('content');
+            
+            inputSection.style.display = 'none';
+            content.style.display = 'block';
+            
+            content.classList.add('fade-in');
+            createFireworks();
+        }
+
+        function reset() {
+            document.getElementById('userName').value = '';
+            document.getElementById('input-section').style.display = 'block';
+            document.getElementById('content').style.display = 'none';
+            document.getElementById('content').classList.remove('fade-in');
+        }
+
+        function createFireworks() {
+            const fireworks = document.createElement('div');
+            fireworks.className = 'fireworks';
+            document.body.appendChild(fireworks);
+
+            setTimeout(() => {
+                fireworks.remove();
+            }, 2000);
+        }
+
+        // Add sparkle effect on hover
+        document.querySelector('.card').addEventListener('mousemove', (e) => {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = e.pageX + 'px';
+            sparkle.style.top = e.pageY + 'px';
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
