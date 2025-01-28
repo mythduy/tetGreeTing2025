@@ -28,15 +28,15 @@ body {
 }
 
 .snake-image {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    z-index: 1;
+    position: absolute; /* Vị trí tuyệt đối */
+    top: 80%; /* Căn chỉnh theo chiều dọc */
+    left: 0; /* Căn chỉnh theo chiều ngang */
+    transform: translateY(-50%); /* Dịch chuyển để căn giữa theo chiều dọc */
+    z-index: 1; /* Độ ưu tiên hiển thị */
 }
 
 .snake-image img {
-    width: 250px; /* Increased size */
+    width: 200px; /* Increased size */
     height: auto;
 }
 
@@ -348,6 +348,8 @@ input[type="text"]:focus {
     }
     
     .snake-image img {
-        width: 150px; /* Adjusted size for mobile devices */
+        width: 150px; /* Kích thước điều chỉnh cho thiết bị di động */
     }
+    
+    /* ...existing code... */
 }
